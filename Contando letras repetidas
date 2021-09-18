@@ -1,0 +1,33 @@
+
+sentence = input()
+previousLetter = ''
+currentLetter = ''
+repeatCounter = 0
+result = ''
+
+for i in range(len(sentence)):
+    previousLetter = currentLetter
+    currentLetter = sentence[i]
+
+    if previousLetter == currentLetter:
+        repeatCounter += 1
+
+        if i == len(sentence) - 1:
+            result += previousLetter
+            repeatCounter += 1
+            result += str(repeatCounter)
+            repeatCounter = 0
+
+    else:
+        result += previousLetter
+
+        if repeatCounter > 0:
+            repeatCounter += 1
+            result += str(repeatCounter)
+            repeatCounter = 0
+
+if len(result) < len(sentence):
+    print(result)
+
+else:
+    print(sentence)
